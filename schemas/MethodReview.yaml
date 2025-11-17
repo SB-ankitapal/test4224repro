@@ -1,0 +1,73 @@
+type: object
+x-stoplight:
+  id: fdauxthqhx00f
+title: Method Review
+description: The results of reviewing a specific method for a path in an API design document.
+properties:
+  id:
+    $ref: ../models/Id.yaml
+    x-stoplight:
+      id: 3rtpmz4h78tui
+  method:
+    description: The method being reviewed
+    enum:
+      - GET
+    x-stoplight:
+      id: h0rlo0pqz6vt1
+  summary:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the summary
+    x-stoplight:
+      id: 8be9cec2lq8gu
+  description:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the description
+    x-stoplight:
+      id: 98braysaryzji
+  headers:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the headers
+    x-stoplight:
+      id: ycn0b1u4jdcuk
+  queryParameters:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the query parameters
+    x-stoplight:
+      id: ca5gy54g6dr0n
+  requestBody:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the request body
+    x-stoplight:
+      id: 6r51uj9v56vw7
+  successResponses:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing all of the 2xx and 3xx responses
+    x-stoplight:
+      id: 6xy3a77wwn71k
+  errorResponses:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing all of the 4xx and 5xx responses
+    x-stoplight:
+      id: 6i6bpc41w0m33
+  methodUsed:
+    $ref: ../models/Check.yaml
+    description: Was the correct method used for the use case
+    x-stoplight:
+      id: tl8ta4vtxka1z
+  parameters:
+    type: array
+    description: The reviews for parameters that are on this method
+    items:
+      $ref: ./ParameterReview.yaml
+      x-stoplight:
+        id: 4nvo9w20fe4h2
+    x-stoplight:
+      id: zhgd9lsv6drzs
+  createdAt:
+    $ref: ../models/CreatedAt.yaml
+    x-stoplight:
+      id: 0tqtmrlj9m69k
+  updatedAt:
+    $ref: ../models/UpdatedAt.yaml
+    x-stoplight:
+      id: 0t8cjzoedrk46

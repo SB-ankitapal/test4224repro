@@ -1,0 +1,20 @@
+title: File
+x-stoplight:
+  id: r7f60pvum3ti7
+type: object
+description: 'File reference, compromised of a purpose and path to the storage location.'
+required:
+  - purpose
+  - path
+properties:
+  purpose:
+    type: string
+    x-stoplight:
+      id: 3kpnjnd7h7476
+    description: 'Purpose of the document, meaningful to users'
+  path:
+    type: string
+    description: Path to the document storage location
+    x-stoplight:
+      id: qye3wkl9kbupa
+    format: uri

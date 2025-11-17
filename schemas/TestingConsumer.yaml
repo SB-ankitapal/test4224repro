@@ -1,0 +1,52 @@
+type: object
+x-stoplight:
+  id: pqr70ao3myol9
+title: Testing Consumer
+description: One consuming application that is intended to be onboarded as part of new proxy development.
+required:
+  - id
+  - directFromBrowser
+  - createdAt
+  - updatedAt
+  - domains
+properties:
+  id:
+    $ref: ../models/Id.yaml
+    x-stoplight:
+      id: 1ibltshjyuvd5
+  assetId:
+    type: string
+    x-stoplight:
+      id: fzu6kdykgdnl1
+  callRate:
+    type: string
+    x-stoplight:
+      id: add060xi8hm1h
+  directFromBrowser:
+    type: boolean
+    x-stoplight:
+      id: 75qxkdnqa04ka
+  identityProvider:
+    x-stoplight:
+      id: yy0q6hd9g1x4a
+    enum:
+      - PING
+      - CIAM
+  createdAt:
+    $ref: ../models/CreatedAt.yaml
+    description: The time this record was created
+    x-stoplight:
+      id: jou3vy8tenupu
+  updatedAt:
+    $ref: ../models/UpdatedAt.yaml
+    description: The time this record was last updated
+    x-stoplight:
+      id: 5l36hsvkg0c1l
+  domains:
+    x-stoplight:
+      id: gvfq4q71ll81s
+    type: array
+    items:
+      $ref: ./EnvironmentDomain.yaml
+      x-stoplight:
+        id: 1cxlntfwimash

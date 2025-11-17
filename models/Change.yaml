@@ -1,0 +1,22 @@
+title: Change
+x-stoplight:
+  id: 5db4tgf8b0slh
+type: object
+description: 'A change descripton, compromised of a summary of the change(s) and the editor''s email'
+required:
+  - summary
+  - editedBy
+properties:
+  summary:
+    type: string
+    x-stoplight:
+      id: z0gf5sow9ifbj
+    description: An itemized summary of changes
+    example: 'Added new operations POST /quote and PATCH /quote/{id}'
+  editedBy:
+    type: string
+    x-stoplight:
+      id: gh90kjnd4cqq5
+    format: email
+    example: user@example.com
+    description: Person who edited the change summary

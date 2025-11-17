@@ -1,0 +1,49 @@
+type: object
+x-stoplight:
+  id: bgcxvw6x3enz1
+description: |-
+  Support request to
+
+  - deactivate a SEAPIM consumer application with its API subscriptions
+
+  - deactivate an API and all of its consuming application subscriptions
+
+  If consumer is populated, it means that the request is to deactivate a specific app.
+required:
+  - id
+  - requestStatus
+  - createdAt
+  - updatedAt
+  - ticket
+properties:
+  id:
+    $ref: ../models/Id.yaml
+    x-stoplight:
+      id: fhmkg0bf4alsg
+    description: Database identifier
+  requestStatus:
+    $ref: ./Decommission Request Request Status.yaml
+    x-stoplight:
+      id: sc8qmgbutjrnf
+    description: Request status
+  createdAt:
+    $ref: ../models/CreatedAt.yaml
+    description: The time this record was created
+    x-stoplight:
+      id: 7wxwmtvpsi6ce
+  updatedAt:
+    $ref: ../models/UpdatedAt.yaml
+    description: The time this record was last updated
+    x-stoplight:
+      id: pgy26n1wdtup4
+  consumer:
+    $ref: ./Consumer.yaml
+    x-stoplight:
+      id: 5252jyfgssuga
+    description: A specific consumer application to decommission
+  ticket:
+    $ref: ./Ticket.yaml
+    x-stoplight:
+      id: q5vsked3jsxpa
+    description: 'Common ticketing attributes, shared by all requests'
+title: Decommission Request

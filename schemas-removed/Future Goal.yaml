@@ -1,0 +1,66 @@
+type: object
+x-stoplight:
+  id: 081v1w6vovtw8
+description: |-
+  Future goal relating to the intended evolution of the API.
+
+  For the expected date fields, values such as "Q2 2026", "June this year" or "after V2 is live" are allowed.
+
+  Similarly the version field allows for "next minor version" or "2.1" etc.
+required:
+  - id
+  - createdAt
+  - updatedAt
+  - api
+properties:
+  id:
+    $ref: ../models/Id.yaml
+    x-stoplight:
+      id: 5rxk7aj480xu8
+    description: Database identifier
+  summary:
+    type: string
+    x-stoplight:
+      id: n1bxcxxnp3gfl
+    description: Summary which explains the goal in business terms
+    example: For technical debt reasons we will decommission the old version
+  editedBy:
+    type: string
+    x-stoplight:
+      id: 71r90g22hmvvp
+    format: email
+    description: Person who lasted edited the goal
+    example: user@example.com
+  version:
+    type: string
+    x-stoplight:
+      id: wy67l6boezfpo
+    description: Future API version major number or minor number
+    example: V1
+  expectedLiveOn:
+    type: string
+    x-stoplight:
+      id: tj4ku0r1t9spe
+    description: Date an enhancement related to a goal is expected to be live
+  expectedDecomOn:
+    type: string
+    x-stoplight:
+      id: jqa7l8kelb1zw
+    example: Q2 2026
+    description: Date when decommissioning of an existing version is expected
+  createdAt:
+    $ref: ../models/CreatedAt.yaml
+    description: The time this record was created
+    x-stoplight:
+      id: uo6im86640api
+  updatedAt:
+    $ref: ../models/UpdatedAt.yaml
+    description: The time this record was last updated
+    x-stoplight:
+      id: zkw92ud9hetp8
+  api:
+    $ref: ./API.yaml
+    x-stoplight:
+      id: f9mrm8v5l0a1e
+    description: The API affected by this goal
+title: Future Goal

@@ -1,0 +1,44 @@
+title: Check
+x-stoplight:
+  id: 47nocvupug5qm
+type: object
+description: 'Results of checking a particular field against SE Design Standards. If valid is false, then one of the approval booleans must be true.'
+properties:
+  valid:
+    type: boolean
+    description: Is the item standard
+    x-stoplight:
+      id: mg7v7rlsodx1c
+  approval:
+    type: object
+    description: 'If an exception was approved, indicate which version it''s for'
+    x-stoplight:
+      id: wct2wcjpqst16
+    properties:
+      minor:
+        type: boolean
+        description: This specific minor version
+        x-stoplight:
+          id: vzd1w42781grk
+      major:
+        type: boolean
+        description: |
+          The lifespan of this major version (inclusive of future mnor versions)
+        x-stoplight:
+          id: bchksbjm54okg
+      full:
+        type: boolean
+        description: The lifespan of the API
+        x-stoplight:
+          id: mkfwb1y36rtgj
+      approver:
+        type: string
+        format: email
+        description: User who approved exception
+        x-stoplight:
+          id: 8mk97x0be24uk
+  comments:
+    type: string
+    description: 'Explanation of why valid is false, or exception/approval details.'
+    x-stoplight:
+      id: 6hr9sucngv5sh

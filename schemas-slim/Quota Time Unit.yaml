@@ -1,0 +1,12 @@
+type: string
+x-stoplight:
+  id: myx0enpdpg6zp
+enum:
+  - minute
+  - hour
+  - day
+  - week
+  - month
+example: hour
+title: ''
+description: Seapim quota time unit

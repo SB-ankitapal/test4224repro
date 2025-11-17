@@ -1,0 +1,12 @@
+type: string
+x-stoplight:
+  id: 6bqiono7nhz7f
+enum:
+  - submitted
+  - pending_approval
+  - approved
+  - rejected
+  - closed
+description: |
+  Subscription request status
+example: pending_approval

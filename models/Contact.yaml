@@ -1,0 +1,15 @@
+title: Contact
+x-stoplight:
+  id: o9l9g5zudmioo
+type: object
+properties:
+  email:
+    type: string
+    x-stoplight:
+      id: 9q3x781aajrb4
+    format: email
+  details:
+    type: string
+    x-stoplight:
+      id: ap7aeyz1cnh1q
+description: Technical Requirements contact info

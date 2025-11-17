@@ -1,0 +1,96 @@
+type: object
+x-stoplight:
+  id: t7cs2moisdb6c
+title: Version
+description: |-
+  Represents the API document for a specific version of an API which used for reference by application developers. A version document is also known as an API specification. Each API enhancement requires a new version to be published in the catalog which includes an incremented minor version number, along with descriptions and examples for the functional changes.
+
+  Each newer version in the same series must be backwardly compatable, ie. non-breaking for consuming applications.
+required:
+  - id
+  - name
+  - version
+  - minorNumber
+  - isDraft
+  - isCertified
+  - isPublished
+  - createdAt
+  - updatedAt
+properties:
+  id:
+    $ref: ../models/Id.yaml
+    x-stoplight:
+      id: yqqvn4rhrry5k
+    description: Database identifier
+  name:
+    type: string
+    x-stoplight:
+      id: yly72f9v4mhk3
+    description: 'Unique name of the API document, matching the name inside the specification'
+    example: Quote
+  version:
+    type: string
+    x-stoplight:
+      id: br3fa2etucpw1
+    description: 'major.minor API version, matching the version inside the specification. It''s a numeric string so that 1.10 and 1.1 can be distinguished.'
+    example: '3.18'
+  minorNumber:
+    type: integer
+    x-stoplight:
+      id: xmqi6jvso5ycb
+    description: 'Specific minor number of this document, parsed from the 2nd number of the version field or 0 if it is missing. Can be thought of as revision number'
+    example: 18
+    readOnly: true
+  isDraft:
+    type: boolean
+    x-stoplight:
+      id: k9lk5swm05zo2
+    description: 'Whether this version is a draft, meaning a review has been requested but has not taken place'
+    default: true
+  isCertified:
+    type: boolean
+    x-stoplight:
+      id: 84q1y2xn7stjt
+    description: Whether this version is certified by the cyber assessment team
+    default: false
+  isPublished:
+    type: boolean
+    x-stoplight:
+      id: osqrw0v03lggo
+    description: Whether this document version is visible to general users browsing the catalog.
+    default: true
+  designedBy:
+    type: string
+    x-stoplight:
+      id: mc3nw24y3nutt
+    format: email
+    description: The person who designed this API specification version. Typically the one who requested the review but not always hence must be kept separate.
+    example: user@example.com
+  change:
+    $ref: ../models/Change.yaml
+    x-stoplight:
+      id: 4mefbvnqbuwnu
+  wentLiveOn:
+    type: string
+    format: date-time
+    x-stoplight:
+      id: e2t8isi2bi50s
+    description: Date when this minor version was usable on the production instance of SEAPIM
+    example: '2025-08-11T05:49:57.000Z'
+  qualityScore:
+    type: number
+    x-stoplight:
+      id: urw68oj27sshl
+    description: 'Assessed document quality score, calculated as a percentage of all documentQuality metrics'
+    format: float
+    example: 80
+  createdAt:
+    $ref: ../models/CreatedAt.yaml
+    x-stoplight:
+      id: d0yqo0p92fill
+    description: The time this record was created
+  updatedAt:
+    $ref: ../models/UpdatedAt.yaml
+    x-stoplight:
+      id: q8xld1ytfu5dx
+    description: The time this record was last updated

@@ -1,0 +1,46 @@
+type: object
+x-stoplight:
+  id: kgovaesjaj6i3
+title: Path Review
+description: The results of reviewing on path in an API design document.
+properties:
+  id:
+    $ref: ../models/Id.yaml
+    x-stoplight:
+      id: a75q0aohyq6y5
+  path:
+    type: string
+    description: The path that this review is for
+    x-stoplight:
+      id: ijpt3l9f9w3bh
+  pathName:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the path
+    x-stoplight:
+      id: wubkvjs16h77k
+  methods:
+    type: array
+    description: The reviews for methods that are on this path
+    items:
+      $ref: ./MethodReview.yaml
+      x-stoplight:
+        id: c4clnizsvjt3k
+    x-stoplight:
+      id: 16x60ojqy21rw
+  parameters:
+    type: array
+    description: The reviews for parameters that are on this path
+    items:
+      $ref: ./ParameterReview.yaml
+      x-stoplight:
+        id: 6ckee30nqk1iw
+    x-stoplight:
+      id: umbwdahr46jkc
+  createdAt:
+    $ref: ../models/CreatedAt.yaml
+    x-stoplight:
+      id: tgsmhlmch55ks
+  updatedAt:
+    $ref: ../models/UpdatedAt.yaml
+    x-stoplight:
+      id: acynp7l59l5h0

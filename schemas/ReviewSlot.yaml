@@ -1,0 +1,72 @@
+type: object
+x-stoplight:
+  id: 0o5nmtuqxfxnf
+title: Review Slot
+description: Information related to  reviewing an API Design Document. Currently it's just OpenAPI Specifications.
+required:
+  - id
+  - isBlocked
+  - isAvailable
+  - createdAt
+  - updatedAt
+properties:
+  id:
+    $ref: ../models/Id.yaml
+    x-stoplight:
+      id: 00ol6m0qjxxy4
+  requestNumber:
+    type: string
+    x-stoplight:
+      id: cj4nv7u2sse9c
+    description: The identifying number in the request creation system to correlate which developemnt request this review is for
+  timeslot:
+    type: string
+    format: date-time
+    x-stoplight:
+      id: ujqogiltade8a
+    description: The day and time this review slot would be.
+  isBlocked:
+    type: boolean
+    x-stoplight:
+      id: vd9wlvc6b940s
+    description: If this slot is blocked from being requested
+    readOnly: true
+  isAvailable:
+    type: boolean
+    x-stoplight:
+      id: ertnfqgngilvq
+    description: 'If this slot is available, used to identify selected review slots. A review exists if available is false. Blocked reviews don''t exist and can''t be selected.'
+    readOnly: true
+  justification:
+    type: string
+    x-stoplight:
+      id: 5tz69q3pgbpkz
+    description: 'If there are defects detected when requesting a review, or updating what is being reviewed, this is the justification given by the requester to request an exception.'
+  changes:
+    type: string
+    x-stoplight:
+      id: 8gywbortoyovb
+    description: The changes that are being made to the design for this review.
+  requestedBy:
+    $ref: ./Stakeholder.yaml
+    x-stoplight:
+      id: c28ld7owbtk4v
+    description: The API Designer that requested the review
+  developmentRequest:
+    $ref: ./DevelopmentRequest.yaml
+    x-stoplight:
+      id: 73p3a56szhein
+    description: The development request which this review is for
+  version:
+    $ref: ./Version.yaml
+    x-stoplight:
+      id: n6l94sr9a3f6a
+    description: The version of the API Design this review is for
+  createdAt:
+    $ref: ../models/CreatedAt.yaml
+    x-stoplight:
+      id: r1op4v4vpe8tc
+  updatedAt:
+    $ref: ../models/UpdatedAt.yaml
+    x-stoplight:
+      id: k8szl57pldipk

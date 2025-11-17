@@ -1,0 +1,156 @@
+type: object
+x-stoplight:
+  id: whyshm0glbm7g
+title: Requirement
+description: 'Main entry point for the technical requirements for a given proxy. One instance of this model is one iteration of a proxy''s technical requirements. Each proxy has a list of these, which can be thought of the revision history for this proxy over time.'
+required:
+  - id
+  - isWorkInProgress
+  - createdAt
+  - updatedAt
+  - developerComments
+  - environments
+  - mediation
+  - pathMappings
+  - payloadSize
+  - providers
+  - security
+  - supportContacts
+  - consumers
+  - trafficManagement
+properties:
+  id:
+    $ref: ../models/Id.yaml
+    x-stoplight:
+      id: m76zrpvnwblsl
+  status:
+    enum:
+      - missing
+      - provided
+      - complete
+      - change
+    description: The submission and review status for this set
+    x-stoplight:
+      id: hti9rhsj6wyax
+  isWorkInProgress:
+    type: boolean
+    description: Is this set of requirements being edited or have they been submitted?
+    x-stoplight:
+      id: bzgg6bnvq4kd3
+  documents:
+    type: object
+    description: 'List of files associated with these requirements. '
+    properties:
+      sequenceDiagram:
+        type: string
+        x-stoplight:
+          id: aaswrq6asr4kx
+        description: 'The call sequence diagram for at least one consumer, passing through SEAPIM, to the end handler of one or more requests.'
+      additionalDocuments:
+        type: array
+        x-stoplight:
+          id: v45ok770xkpx4
+        description: List of additional documentaiton that might be supportive to users who are looking to understand the implementation of this API.
+        items:
+          x-stoplight:
+            id: 6ubbknvibt2vj
+          type: string
+          format: email
+    x-stoplight:
+      id: ve2z8k368pqi0
+  permissions:
+    type: object
+    description: "Object  granting explicity permissions to users who may not have access through other methods.\r\nAPI Owner, Review Requesters and Admins will not be in this list unless they were present before  becoming one of these three"
+    properties:
+      editors:
+        type: array
+        x-stoplight:
+          id: baxcke6dpu8ra
+        description: List of users who are allowed to make changes to these requirements.
+        items:
+          x-stoplight:
+            id: t8e46i7z3jsa9
+          type: string
+          format: email
+    x-stoplight:
+      id: qhh12c3k9ey33
+  createdAt:
+    $ref: ../models/CreatedAt.yaml
+    description: The time this record was created
+    x-stoplight:
+      id: 5suokp6qsfp35
+  updatedAt:
+    $ref: ../models/UpdatedAt.yaml
+    description: The time this record was last updated
+    x-stoplight:
+      id: ej87in67xopt7
+  developerComments:
+    type: array
+    items:
+      $ref: ./DeveloperComment.yaml
+      x-stoplight:
+        id: gcsg8df28no7h
+    x-stoplight:
+      id: ntvl432ttlpc4
+  environments:
+    type: object
+    description: 'Object containing each SEAPIM environment that this proxy is deployedto, or going to be deployed to.'
+    properties:
+      dev:
+        $ref: ./Environment.yaml
+        x-stoplight:
+          id: 3v0ovq9rod5km
+      qa:
+        $ref: ./Environment.yaml
+        x-stoplight:
+          id: k2mmhmiuik1pp
+      preprod:
+        $ref: ./Environment.yaml
+        x-stoplight:
+          id: coi1xhkb6pj8v
+      prod:
+        $ref: ./Environment.yaml
+        x-stoplight:
+          id: wwafzpvvfgxha
+    x-stoplight:
+      id: 6moooxnhwlrkm
+  mediation:
+    $ref: ./Mediation.yaml
+    x-stoplight:
+      id: 4krup4gkhagw7
+  pathMappings:
+    type: array
+    items:
+      $ref: ./PathMapping.yaml
+      x-stoplight:
+        id: 5ladpty28ee5d
+    x-stoplight:
+      id: tq5fsq7kn4alm
+  payloadSize:
+    $ref: ./PayloadSize.yaml
+    x-stoplight:
+      id: 4fyrjrj62206q
+  providers:
+    $ref: ./ProviderConnectivity.yaml
+    x-stoplight:
+      id: er4upho55rc71
+  security:
+    $ref: ./Security.yaml
+    x-stoplight:
+      id: sfzowplk3c9g7
+  supportContacts:
+    $ref: ./SupportContact.yaml
+    x-stoplight:
+      id: jzkms1mzcgkm0
+  consumers:
+    x-stoplight:
+      id: 2wnu98hj1j3wn
+    type: array
+    items:
+      $ref: ./TestingConsumer.yaml
+      x-stoplight:
+        id: 29s1eeqqpr69l
+  trafficManagement:
+    $ref: ./TrafficManagement.yaml
+    x-stoplight:
+      id: pky9b1drx3dqn

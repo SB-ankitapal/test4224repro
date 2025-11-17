@@ -1,0 +1,73 @@
+type: object
+x-stoplight:
+  id: 9563zsfm2t0m5
+title: Method Review
+description: The results of reviewing a specific method for a path in an API design document.
+properties:
+  id:
+    $ref: ../models/Id.yaml
+    x-stoplight:
+      id: 51u56z8o72jd5
+  method:
+    description: The method being reviewed
+    enum:
+      - GET
+    x-stoplight:
+      id: aaki09uke6ra0
+  summary:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the summary
+    x-stoplight:
+      id: 8ylggxfpkkuqw
+  description:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the description
+    x-stoplight:
+      id: v7kxslcdx8wnq
+  headers:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the headers
+    x-stoplight:
+      id: jr50h8muh5qd0
+  queryParameters:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the query parameters
+    x-stoplight:
+      id: e77x8ywbhypi6
+  requestBody:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the request body
+    x-stoplight:
+      id: gn1yzpwm6tg3j
+  successResponses:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing all of the 2xx and 3xx responses
+    x-stoplight:
+      id: vytytlfjxvpyu
+  errorResponses:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing all of the 4xx and 5xx responses
+    x-stoplight:
+      id: osvb9hc6emkav
+  methodUsed:
+    $ref: ../models/Check.yaml
+    description: Was the correct method used for the use case
+    x-stoplight:
+      id: 4fh6lggacttn1
+  parameters:
+    type: array
+    description: The reviews for parameters that are on this method
+    items:
+      $ref: ./Parameter Review.yaml
+      x-stoplight:
+        id: odjbjd2qa56tv
+    x-stoplight:
+      id: 5ip8lwy4kvcjl
+  createdAt:
+    $ref: ../models/CreatedAt.yaml
+    x-stoplight:
+      id: cffz6s97ewl2k
+  updatedAt:
+    $ref: ../models/UpdatedAt.yaml
+    x-stoplight:
+      id: 6qlf6q49jyupg

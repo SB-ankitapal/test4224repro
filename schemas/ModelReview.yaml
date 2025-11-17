@@ -1,0 +1,38 @@
+type: object
+x-stoplight:
+  id: 61nf66e75eprl
+title: Model Review
+description: The results of reviewing one model in an API design document.
+properties:
+  id:
+    $ref: ../models/Id.yaml
+    x-stoplight:
+      id: 88qab5o7jzhi8
+  modelName:
+    type: string
+    description: The name of the model being reviewed
+    x-stoplight:
+      id: p5qf3vnce86ik
+  title:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the name (title) of the model
+    x-stoplight:
+      id: 26idqyco6z3b7
+  description:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the description
+    x-stoplight:
+      id: jz2llwfexiwqx
+  fields:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the fields on the model
+    x-stoplight:
+      id: 3cr438wsobyfx
+  createdAt:
+    $ref: ../models/CreatedAt.yaml
+    x-stoplight:
+      id: dz0q5kths9no7
+  updatedAt:
+    $ref: ../models/UpdatedAt.yaml
+    x-stoplight:
+      id: ympm9p3ih1ows

@@ -1,0 +1,201 @@
+type: object
+x-stoplight:
+  id: qdw7nkr259kgx
+description: 'API proxy which is a component that runs on the SEAPIM API platform, managing API traffic.'
+required:
+  - id
+  - proxyName
+  - apiType
+  - status
+  - isInDevelopment
+  - isPublished
+  - isManualSubscription
+  - createdAt
+  - updatedAt
+  - exceptions
+  - productProxies
+  - api
+  - proxyProviders
+  - requirements
+  - tickets
+  - versions
+properties:
+  id:
+    $ref: ../models/Id.yaml
+    x-stoplight:
+      id: 21jacwbw5wzk8
+    description: Database identifier
+  proxyName:
+    type: string
+    x-stoplight:
+      id: xne1qmkgeikiy
+    description: Unique name of an API proxy. A standardized name has a major version suffix
+    example: Quote-V3
+  proxyVersion:
+    type: string
+    x-stoplight:
+      id: 2kdu4zl05y11h
+    description: 'Proxy version as a numeric string, parsed from the proxy name suffix. Typically an integer indicating a major number. For legacy proxies, it may be major.minor format'
+    example: '3'
+    readOnly: true
+  majorNumber:
+    type: integer
+    x-stoplight:
+      id: rfsyhe13pwx3q
+    description: The API major number parsed from the first number of the proxyVersion. Useful for sorting by version.
+    example: 3
+    readOnly: true
+  apiType:
+    $ref: ./Proxy_apiType.yaml
+    x-stoplight:
+      id: r88ud77jvv85b
+    description: 'API type, one of REST, GraphQL or SOAP.'
+  status:
+    $ref: ./Proxy_status.yaml
+    x-stoplight:
+      id: oq15siazttx12
+    description: Proxy status with respect to the SEAPIM production instance
+  isInDevelopment:
+    type: boolean
+    x-stoplight:
+      id: ldnt6vexircrb
+    default: true
+    description: Whether the latest version is in development or is available for use in SEAPIM production
+  isPublished:
+    type: boolean
+    x-stoplight:
+      id: f5zgw76cwkzyx
+    default: true
+    description: Whether or not the API major version is visible to general users browsing the catalog
+  isManualSubscription:
+    type: boolean
+    x-stoplight:
+      id: 2f9zo500vzlym
+    default: false
+    description: Whether an API subscription is enabled manually (true) or automatically (false)
+  wentLiveOn:
+    type: string
+    format: date-time
+    x-stoplight:
+      id: qv8h6kpl6g9lq
+    description: Date when this proxy was deployed to the production instance of SEAPIM
+    example: '2025-08-11T05:49:57.000Z'
+  decommissionedOn:
+    type: string
+    x-stoplight:
+      id: mmly4bwzd09mh
+    format: date-time
+    description: Date when this proxy was undeployed on the production instance of SEAPIM
+  description:
+    type: string
+    x-stoplight:
+      id: ruyi32qdw4ejo
+    description: Business-friendly descripton of the functionality offered by this proxy version
+    example: 'API users can perform basic functionalities as create quote or empty quote, update quote ,get quote ,create or modify configuration details, create order on quote and get quote summary'
+  categories:
+    type: array
+    x-stoplight:
+      id: 6fjuu64fkbhn9
+    description: List of business terms which can be used to find this proxy in the catalog
+    items:
+      x-stoplight:
+        id: 59upngc8g0jo3
+      type: string
+      example: Quote
+  editedBy:
+    type: string
+    x-stoplight:
+      id: 0m9sjs8avqjyc
+    format: email
+    description: Person who last edited this record
+  qualityScore:
+    type: number
+    format: float
+    x-stoplight:
+      id: 9jujonqkh026h
+    description: 'Assessed API implementation quality score, calculated as a percentage of all buildQuality metrics'
+    example: 77.75
+  createdAt:
+    $ref: ../models/CreatedAt.yaml
+    description: The time this record was created
+    x-stoplight:
+      id: v3j8s4wq3n3w8
+  updatedAt:
+    $ref: ../models/UpdatedAt.yaml
+    description: The time this record was last updated
+    x-stoplight:
+      id: 8xisitcly938a
+  buildQuality:
+    $ref: ./BuildQuality.yaml
+    x-stoplight:
+      id: lwnx74msqu47w
+    description: 'Assessed API implementation/build qualities, captured as true/false values for each aspect of idealized quality. An implementation is considered high quality if it behaves as described by the version document, has few errors and returns is fast.'
+  exceptions:
+    type: array
+    x-stoplight:
+      id: 4xjcbakzlw2r0
+    description: List of approved exceptions with respect to the SE Design Standards. Typically these are granted as time-limited exceptions and an API owner is expected to align to the standards in a future version.
+    items:
+      $ref: ./Exception.yaml
+      x-stoplight:
+        id: wxrf6klil8ttn
+  metric:
+    $ref: ./Metric.yaml
+    x-stoplight:
+      id: c2p439virk22y
+    description: Traffic metrics for the proxy running on the production instance of SEAPIM
+  productProxies:
+    type: array
+    x-stoplight:
+      id: qs7ryr78c9tkq
+    description: List of associations to SEAPIM products (bundles) that grant access to this proxy
+    items:
+      $ref: ./ProductProxy.yaml
+      x-stoplight:
+        id: k1eu7omc1f0la
+  api:
+    $ref: ./API.yaml
+    x-stoplight:
+      id: ooe1bmd782h1g
+    description: Parent API record for this proxy
+  latestVersion:
+    $ref: ./Version.yaml
+    x-stoplight:
+      id: 4928brk5mbdph
+    description: Latest API version which is a specification available in the API catalog for a given minor version
+  proxyProviders:
+    type: array
+    x-stoplight:
+      id: zgv3p1gr02uf0
+    description: List of application system providers (proxy backends) that implement this API major version
+    items:
+      $ref: ./ProxyProvider.yaml
+      x-stoplight:
+        id: dvwpk8ho92l5z
+  requirements:
+    type: array
+    x-stoplight:
+      id: 58alfoz88h8ts
+    description: List of proxy technical requirements
+    items:
+      $ref: ./Requirement.yaml
+      x-stoplight:
+        id: x36oegiouacvo
+  tickets:
+    type: array
+    x-stoplight:
+      id: xhp6oupgzkr36
+    description: List of support tickets linked to this API
+    items:
+      $ref: ./Ticket.yaml
+      x-stoplight:
+        id: mmrbaoh2dnp8z
+  versions:
+    type: array
+    x-stoplight:
+      id: ba96qhpqqj0rc
+    description: List of API versions supported by this proxy
+    items:
+      $ref: ./Version.yaml
+      x-stoplight:
+        id: r84wtrdw09m6o

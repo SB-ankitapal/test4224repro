@@ -1,0 +1,50 @@
+type: object
+x-stoplight:
+  id: vw4dlbuhmab63
+description: 'A certification record, created when a certification request is closed. It includes a reference to the cyber assessment report.'
+required:
+  - createdAt
+  - updatedAt
+  - version
+properties:
+  certifiedBy:
+    type: string
+    x-stoplight:
+      id: 3jtawpmx60dxy
+    format: email
+    example: user@example.com
+    description: Person who performed the assessment resulting in certification
+  certifiedOn:
+    type: string
+    format: date-time
+    x-stoplight:
+      id: erm4m0dvlu6ae
+    example: '2025-08-11T05:49:57.000Z'
+    description: Date the version was certified
+  reportUrl:
+    type: string
+    x-stoplight:
+      id: 0fsn5saci2xr8
+    format: uri
+    description: URL link to the official certification report whicih includes any identified vulnerabilities
+    example: 'https://leap.schneider-electric.com/OneXperiencePortal/APIDetailsReport.aspx?APIID=API0999&IsAPICatalog=True'
+  riskProfile:
+    $ref: ./Certification_riskProfile.yaml
+    x-stoplight:
+      id: oh0ji2jozgjgc
+    description: Assessed risk profile
+  createdAt:
+    $ref: ../models/CreatedAt.yaml
+    description: The time this record was created
+    x-stoplight:
+      id: 4fzr3sfiekq7h
+  updatedAt:
+    $ref: ../models/UpdatedAt.yaml
+    description: The time this record was last updated
+    x-stoplight:
+      id: bbvitdpl10kr0
+  version:
+    $ref: ./Version.yaml
+    x-stoplight:
+      id: zi26myv1vx6hr
+    description: API version assessed

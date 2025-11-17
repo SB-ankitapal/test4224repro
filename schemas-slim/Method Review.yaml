@@ -1,0 +1,73 @@
+type: object
+x-stoplight:
+  id: ortg9kumq371h
+title: Method Review
+description: The results of reviewing a specific method for a path in an API design document.
+properties:
+  id:
+    $ref: ../models/Id.yaml
+    x-stoplight:
+      id: thk14vtf5ynjw
+  method:
+    description: The method being reviewed
+    enum:
+      - GET
+    x-stoplight:
+      id: zjqnpf322eaur
+  summary:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the summary
+    x-stoplight:
+      id: 5xrshzp9rqc16
+  description:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the description
+    x-stoplight:
+      id: 7az5l90jccdib
+  headers:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the headers
+    x-stoplight:
+      id: vx8hbrl8wkrrq
+  queryParameters:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the query parameters
+    x-stoplight:
+      id: 12r40dlmjyanw
+  requestBody:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing the request body
+    x-stoplight:
+      id: ikqfp4rp972v0
+  successResponses:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing all of the 2xx and 3xx responses
+    x-stoplight:
+      id: 1xv1jyqhaqrtp
+  errorResponses:
+    $ref: ../models/Check.yaml
+    description: The results of reviewing all of the 4xx and 5xx responses
+    x-stoplight:
+      id: c6a7sm713oeye
+  methodUsed:
+    $ref: ../models/Check.yaml
+    description: Was the correct method used for the use case
+    x-stoplight:
+      id: jhuxqy07mctfd
+  parameters:
+    type: array
+    description: The reviews for parameters that are on this method
+    items:
+      $ref: ./Parameter Review.yaml
+      x-stoplight:
+        id: 4q8uuq56lo1lf
+    x-stoplight:
+      id: xo08t41ex04km
+  createdAt:
+    $ref: ../models/CreatedAt.yaml
+    x-stoplight:
+      id: d4dqudfaho3s2
+  updatedAt:
+    $ref: ../models/UpdatedAt.yaml
+    x-stoplight:
+      id: xi420g3wlahxm

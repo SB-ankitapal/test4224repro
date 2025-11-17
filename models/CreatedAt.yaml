@@ -1,0 +1,8 @@
+title: CreatedAt
+x-stoplight:
+  id: uafn2x3fb2seg
+type: string
+format: date-time
+description: Time the record was created in the DB
+example: '2025-08-11T05:49:57.000Z'
+readOnly: true

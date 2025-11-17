@@ -1,0 +1,183 @@
+type: object
+x-stoplight:
+  id: 0q8nfln8ydxie
+title: API
+description: The top level of an API hierarchy (API > Proxy > Version) representing a business user's concept of an API which is version-independent.
+required:
+  - id
+  - name
+  - status
+  - certificationStatus
+  - isPublished
+  - isPartner
+  - createdAt
+  - updatedAt
+  - apiOwner
+  - capabilities
+  - certifications
+  - futureGoals
+  - exceptions
+  - kpis
+  - proxies
+  - ratings
+properties:
+  id:
+    $ref: ../models/Id.yaml
+    description: Database identifier
+    x-stoplight:
+      id: mujpc9tvsfq8n
+  name:
+    type: string
+    x-stoplight:
+      id: 8tqs9s7s1v9bl
+    description: 'Unique API name, typically describing the primary resource on which the API operates'
+    example: Quote
+  status:
+    $ref: ./API Status.yaml
+    x-stoplight:
+      id: ep283btr9wihn
+    description: 'API lifecycle status, which is derived from the status of child proxies'
+  certificationStatus:
+    $ref: ./API Certification Status.yaml
+    x-stoplight:
+      id: b6a1sggbubznq
+    description: Current certification status
+  isPublished:
+    type: boolean
+    x-stoplight:
+      id: w9pzt3kzgslgr
+    description: Whether or not the API is visible to general users browsing the catalog
+    default: true
+  isPartner:
+    type: boolean
+    x-stoplight:
+      id: pim0a244q2qnc
+    description: Whether or not the API is for use by SE partners
+    default: false
+  businessArea:
+    type: string
+    x-stoplight:
+      id: b8l785cqiebxm
+    description: Business area which the API is designed to support. The set of values originates from the SE Asset Management system
+    example: Sales
+  domain:
+    $ref: ./API Domain.yaml
+    x-stoplight:
+      id: rwqbp0x4y2iqy
+    description: Business domain that owns this API
+  files:
+    x-stoplight:
+      id: ang7vgv8yphfn
+    description: 'List of files, curated by the API owner'
+    type: array
+    items:
+      $ref: ../models/File.yaml
+      x-stoplight:
+        id: pxd260keuz7dj
+  assetId:
+    type: string
+    x-stoplight:
+      id: 0bnmsp4na0c8e
+    description: Unique identifier for this API in the SE Asset Managment system
+    example: '54321'
+  vision:
+    type: string
+    x-stoplight:
+      id: 5bswmn5d2ax3x
+    description: API owner's vision for the API
+    example: One API to support all quotation use cases across regions
+  editedBy:
+    type: string
+    x-stoplight:
+      id: 0zz7y3u6r8tff
+    format: email
+    description: Person who last edited this record
+    example: user@example.com
+  createdAt:
+    $ref: ../models/CreatedAt.yaml
+    description: The time this record was created
+    x-stoplight:
+      id: jvvjpfkqd5j3i
+  updatedAt:
+    $ref: ../models/UpdatedAt.yaml
+    description: The time this record was last updated
+    x-stoplight:
+      id: hgcssd7lb2n5r
+  apiOwner:
+    $ref: ./Stakeholder.yaml
+    x-stoplight:
+      id: rffbb32b9y6be
+    description: Person who owns this API
+  latestProxy:
+    $ref: ./Proxy.yaml
+    x-stoplight:
+      id: sbmoij3md2zin
+    description: 'Latest API proxy which is a component that runs on the SEAPIM API platform, managing API traffic'
+  capabilities:
+    type: array
+    x-stoplight:
+      id: vlb6wbm7u6yjm
+    description: 'List of business capabilities which the API is designed to support. They must all have the same parent business area, as defined within the SE Asset Management system'
+    items:
+      $ref: ./Capability.yaml
+      x-stoplight:
+        id: vigy4r0kvoa7m
+  certifications:
+    type: array
+    x-stoplight:
+      id: 8stbbybxvl00a
+    description: List of completed certification records for this API
+    items:
+      $ref: ./Certification.yaml
+      x-stoplight:
+        id: ee4zej1zugw6m
+  futureGoals:
+    type: array
+    x-stoplight:
+      id: vko41egsnwath
+    description: List of future goals related to the intended evolution of this API
+    items:
+      $ref: ./Future Goal.yaml
+      x-stoplight:
+        id: 9v6ltjty2yfjz
+  exceptions:
+    type: array
+    x-stoplight:
+      id: w5ilu8jv3l3nu
+    description: List of exceptions for this API raised due to deviations from the SE API design standards
+    items:
+      $ref: ./Exception.yaml
+      x-stoplight:
+        id: 3vzy8i1jypnt2
+  kpis:
+    type: array
+    x-stoplight:
+      id: ki47mjor3ro92
+    description: List of business-defined Key Performance Indicators (KPIs) for this API
+    items:
+      $ref: ./KPI.yaml
+      x-stoplight:
+        id: zcg4z8p0po0rt
+  proxies:
+    type: array
+    x-stoplight:
+      id: 4zu71nlfgqdqi
+    description: List of proxies for this API. Each proxy is associated with a major version
+    items:
+      $ref: ./Proxy.yaml
+      x-stoplight:
+        id: i49x4goajud81
+  ratings:
+    type: array
+    x-stoplight:
+      id: le9myriitxfol
+    description: List of user ratings for this API
+    items:
+      $ref: ./Rating.yaml
+      x-stoplight:
+        id: bbo3pz7obmr46
+  score:
+    $ref: ./Score.yaml
+    x-stoplight:
+      id: zkeo0rimifb73
+    description: 'Assessed quality score for this API. Scoring is based on criteria defined for good quality API documentation, implementation, and completeness of catalog information for the API, its latest proxy and version.'
